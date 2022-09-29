@@ -128,4 +128,34 @@ const handleIncrement = () => {
   }
 ```
 
+# Making a counter 
 
+- We import react useState from react `import { useState } from 'react';
+
+```js 
+import { useState } from 'react';
+```
+- We then define the useState variable and the counter and setCounter
+
+```js
+  const [counter, setCounter] = useState(0);
+```
+- We defined variables handleIncrememt and handleDecrement 
+- We call the setCounter function and pass counter -1 and counter +1 on eachh of themselves
+
+```js
+  const handleIncrement = () => {
+    setCounter(counter + 1);
+  }
+  const handleDecrement = () => {
+    setCounter(counter - 1);
+  }
+```
+- In the return function we need to define the counter in a h1 tag and also define the button and add an onclick function
+
+```js
+ <h1>{counter}</h1>
+      <button onClick={handleIncrement}>increment</button>
+      <button onClick={handleDecrement}>Decrement</button>
+
+  ```
