@@ -45,26 +45,87 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## STATE AND prompts
 
-### Analyzing the Bundle Size
+# STATE
+- They are local to the compenent: Will be defined in the component 
+- Cannot be access to other components
+- We need them to modify a component like in JS `document.getElementById`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+In the below example, we are incrementing the number variable of the by 1 each time the button is being clicked.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The `console.log` only display in the console amd the `state` of the `h1` has not changed on the UI
 
-### Advanced Configuration
+The `state` is in charge of rendering the change on the UI 
+each time the button is being clicked. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+```js
+import './App.css';
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+function App() {
 
-### `npm run build` fails to minify
+  let number = 1;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  const handleIncrement = () => {
+    number++;
+    console.log("number", number)
+  }
+  
+  return (
+    <div className="App">
+      <h1>{number}</h1>
+      <button onClick={handleIncrement}>Increment</button>
+    </div>
+  );
+}
+
+export default App;
+```
+# Rendering on the UI 
+
+As we mentioned, the `state` is in charge of rendering the change on the UI each time the button is being clicked.
+
+In order to achieve that, we will ` import {useState} from react`;
+
+then we will set a `const [] = useState()` this is a function which initialize the state
+
+then we  define a variable and Set that variable to the value
+ `const [counter, setCounter] = useState(0)`
+ - We put an initial value 0
+ - We name a `counter` variable and setCounter
+
+```js
+import './App.css';
+import { useState } from 'react';
+```
+
+then
+
+```js
+const [] = useState()
+```
+
+then
+
+- create a variable called `counter` that will be modified on clinck by the `setCounter` (which is a function)
+- we advise react that the initial balue is `0` and pass it in the `useState(0)`
+- this makes the `let number = 1;` irrelevant because we have a new variable called `counter` which will be updated by the `setCounter`
+
+```js
+  const [counter, setCounter] = useState(0)
+```
+- Now in he `handleIncrement` variable/function, we call
+the `setCounter` function and we pass a value of `counter + 1`
+
+```js
+const handleIncrement = () => {
+    //number++;
+    setCounter(counter + 1)
+    console.log("number", counter)
+  }
+```
+
+
