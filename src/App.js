@@ -3,16 +3,17 @@ import { useState } from 'react';
 
 function App() {
   //let number = 1;
-  const [counter, setCounter] = useState(1)
+  const [counter, setCounter] = useState(0)
 
   const handleIncrement = () => {
     //  number++;
-    //  console.log(number);
     setCounter(counter + 1)
+    console.log("Number", counter);
   }
 
   const handleDecrement = () => {
     setCounter(counter - 1)
+    console.log("Number", counter);
   }
 
   return (
