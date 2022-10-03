@@ -159,3 +159,25 @@ import { useState } from 'react';
       <button onClick={handleDecrement}>Decrement</button>
 
   ```
+
+
+  ```js
+  import { useState } from 'react';
+
+  function App() {
+    const [ counter, setCounter ] = useState(0)
+    const handleIncrement = () => {
+      setCounter(counter + 1)
+    
+    }
+    const handleDecrement = () => {
+      setCounter(counter - 1)
+    }
+
+    return(
+      <div className="App">
+        <h1>Increment</h1>
+        <button onClick={handleIncrement}>increment</button>
+      </div>
+    )
+  }
